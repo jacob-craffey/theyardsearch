@@ -1,0 +1,22 @@
+.search-results {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.top-result {
+  margin-bottom: 2rem;
+}
+
+.result-item {
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+}
+
+.result-item h3 {
+  margin: 0 0 0.5rem 0;
+}
+
+.result-item p {
+  margin: 0;
+  color: #666;
+}
