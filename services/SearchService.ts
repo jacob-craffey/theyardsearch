@@ -27,7 +27,7 @@ export class SearchService {
       includeMetadata: true,
     });
 
-    return queryResponse.matches as SearchResult[];
+    return queryResponse.matches as unknown as SearchResult[];
   }
 
   private async createEmbedding(text: string): Promise<number[]> {

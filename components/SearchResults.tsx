@@ -1,5 +1,6 @@
 import { SearchResult } from "../types/SearchResult";
 import { useState } from "react";
+import Image from "next/image";
 
 interface SearchResultsProps {
   results: SearchResult[];
@@ -41,12 +42,15 @@ export const SearchResults = ({ results }: SearchResultsProps) => {
           <div
             className={`${
               compact ? "w-40 flex-shrink-0" : "w-full"
-            } aspect-video overflow-hidden rounded-md`}
+            } relative aspect-video rounded-md overflow-hidden`}
           >
-            <img
+            <Image
               src={getYoutubeThumbnail(result.metadata.videoId!)}
               alt={result.metadata.chapterTitle}
-              className="w-full h-full object-cover"
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              className="object-cover"
+              priority={index === 0}
             />
           </div>
           <div className="min-w-0 flex flex-col justify-center">

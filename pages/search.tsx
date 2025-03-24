@@ -26,7 +26,7 @@ export default function SearchPage() {
       const data = await response.json();
       setResults(data.results);
       setError("");
-    } catch (err) {
+    } catch {
       setError("Failed to perform search");
       setResults([]);
     }
