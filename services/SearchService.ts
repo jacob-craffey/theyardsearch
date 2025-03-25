@@ -1,5 +1,5 @@
 import OpenAI from "openai";
-import { Pinecone, QueryResponse } from "@pinecone-database/pinecone";
+import { Pinecone } from "@pinecone-database/pinecone";
 import { SearchResult } from "../types/SearchResult";
 
 export class SearchService {
@@ -15,7 +15,7 @@ export class SearchService {
     });
   }
 
-  async search(query: string, topK: number = 5): Promise<SearchResult[]> {
+  async search(query: string, topK: number = 10): Promise<SearchResult[]> {
     // Generate embedding for the search query
     const embedding = await this.createEmbedding(query);
 

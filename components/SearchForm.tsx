@@ -23,12 +23,12 @@ export const SearchForm = ({ onSearch }: SearchFormProps) => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search anything..."
-          className="w-full px-6 py-4 text-lg bg-white/80 backdrop-blur-md border-2 border-white/20 rounded-2xl focus:outline-none focus:border-[color:var(--color-lawn-500)] focus:bg-white/90 transition-all duration-200  shadow-lg text-gray-800 placeholder-gray-500"
+          className="w-full px-6 pr-18 py-4 text-lg bg-white/80 backdrop-blur-md border-2 border-white/20 rounded-2xl focus:outline-none focus:border-[color:var(--color-lawn-500)] focus:bg-white/90 transition-all duration-200 shadow-lg text-gray-800 placeholder-gray-500"
           disabled={isLoading}
         />
         <button
           type="submit"
-          className="absolute right-2 px-6 py-2 bg-[color:var(--color-lawn-500)]/90 hover:bg-[color:var(--color-lawn-600)] text-white rounded-2xl disabled:bg-[color:var(--color-lawn-300)]/50 transition-colors duration-200  cursor-pointer  flex items-center gap-2 backdrop-blur-sm"
+          className="absolute right-2  px-4 py-2 bg-[color:var(--color-lawn-500)]/90 hover:bg-[color:var(--color-lawn-600)] text-white rounded-2xl disabled:bg-[color:var(--color-lawn-300)]/50 transition-colors duration-200 cursor-pointer flex items-center justify-center gap-2 backdrop-blur-sm"
           disabled={isLoading}
         >
           <svg

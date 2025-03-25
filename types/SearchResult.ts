@@ -3,6 +3,7 @@ export interface SearchResultMetadata {
   endTime: number;
   startTime: number;
   text?: string;
+  videoTitle: string;
   videoId?: string;
   youtubeTimeLink: string;
 }

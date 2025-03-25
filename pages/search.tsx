@@ -33,7 +33,7 @@ export default function SearchPage() {
   };
 
   return (
-    <div className="h-screen relative overflow-hidden">
+    <div className="h-screen relative">
       {/* Backdrop with blur and overlay */}
       <div className="fixed inset-0 z-0">
         <div className="absolute inset-0">
@@ -71,7 +71,7 @@ export default function SearchPage() {
             )}
 
             {results.length > 0 && (
-              <div className="h-full backdrop-blur-md bg-white/10 rounded-2xl">
+              <div className=" backdrop-blur-md bg-white/10 rounded-2xl">
                 <SearchResults results={results} />
               </div>
             )}

@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { SearchService } from "../../services/SearchService";
 import { RateLimitService } from "../../services/RateLimitService";
+import { YouTubeService } from "../../services/YouTubeService";
 
 function getClientKey(req: NextApiRequest): string {
   const forwarded = req.headers["x-forwarded-for"];
@@ -22,6 +23,7 @@ export default async function handler(
 
   const rateLimitService = new RateLimitService();
   const clientKey = getClientKey(req);
+  const youtubeService = new YouTubeService();
 
   try {
     const { allowed, remaining, reset } =
@@ -44,8 +46,24 @@ export default async function handler(
     const searchService = new SearchService();
     const results = await searchService.search(query);
 
+    // Fetch video titles concurrently
+    const resultsWithTitles = await Promise.all(
+      results.map(async (result) => {
+        const videoTitle = await youtubeService.getVideoTitle(
+          result.metadata.videoId!
+        );
+        return {
+          ...result,
+          metadata: {
+            ...result.metadata,
+            videoTitle,
+          },
+        };
+      })
+    );
+
     res.status(200).json({
-      results,
+      results: resultsWithTitles,
       remainingRequests: remaining,
       nextReset: reset,
     });
