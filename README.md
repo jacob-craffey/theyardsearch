@@ -34,6 +34,8 @@ OPENAI_API_KEY=your_openai_key
 PINECONE_API_KEY=your_pinecone_key
 PINECONE_INDEX=your_index_name
 REDIS_URL=your_redis_url
+REDIS_PASSWORD=your_redis_password
+YOUTUBE_API_KEY=your_youtube_api_key
 ```
 
 4. Run the development server:
