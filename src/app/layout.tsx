@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "/styles/mobile.css";
 import { Analytics } from "@vercel/analytics/next";
 
 const geistSans = Geist({
@@ -32,16 +33,16 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
-        <div className="fixed bottom-4 right-4 flex flex-col items-end gap-2 z-50">
+        <div className="fixed bottom-4 right-4 md:flex flex-col items-end gap-2 z-50 hidden">
           <a
             href="https://github.com/jacob-craffey/theyardsearch"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm opacity-40 hover:opacity-100 hover:scale-110 transition-all duration-300 flex items-center gap-1"
+            className="text-xs md:text-sm opacity-30 hover:opacity-100 hover:scale-110 transition-all duration-300 flex items-center gap-1"
           >
             <svg
-              height="20"
-              width="20"
+              height="16"
+              width="16"
               viewBox="0 0 16 16"
               className="fill-current"
             >
@@ -52,7 +53,7 @@ export default function RootLayout({
             href="https://buymeacoffee.com/jcraffey96"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm opacity-40 hover:opacity-100 hover:scale-110 transition-all duration-300 flex items-center gap-1 hover:text-pink-500"
+            className="text-xs md:text-sm opacity-30 hover:opacity-100 hover:scale-110 transition-all duration-300 flex items-center gap-1 hover:text-pink-500"
           >
             made with{" "}
             <span className="heart-beat text-red-500 hover:text-pink-500">
