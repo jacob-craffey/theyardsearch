@@ -55,7 +55,7 @@ export default function SearchPage() {
         <div className="flex-shrink-0 pt-4 lg:pt-8 pb-4 lg:pb-6">
           <div className="max-w-7xl mx-auto px-4">
             <h1 className="text-4xl lg:text-5xl font-bold text-center text-white mb-4 lg:mb-8 drop-shadow-lg">
-              The Yard Search
+              Search The Yard
             </h1>
             <SearchForm onSearch={handleSearch} />
           </div>

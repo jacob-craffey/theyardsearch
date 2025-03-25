@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "The Yard Search",
+  title: "Search The Yard",
   description: "Search through The Yard videos",
   icons: {
     icon: "/images/favicon.ico",

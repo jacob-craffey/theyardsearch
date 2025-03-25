@@ -1,4 +1,4 @@
-# The Yard Search
+# Search The Yard
 
 A semantic search engine for The Yard videos, powered by AI. This application allows users to search through video content using natural language queries, finding specific moments and topics across episodes.
 
