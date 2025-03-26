@@ -8,6 +8,8 @@ import { SearchResults } from "../components/SearchResults";
 export default function SearchPage() {
   const [results, setResults] = useState<SearchResult[]>([]);
   const [error, setError] = useState<string>("");
+  const [selectedResult, setSelectedResult] = useState<SearchResult>();
+  const [query, setQuery] = useState<string>("");
 
   const handleSearch = async (query: string) => {
     try {
@@ -57,7 +59,12 @@ export default function SearchPage() {
             <h1 className="text-4xl lg:text-5xl font-bold text-center text-white mb-4 lg:mb-8 drop-shadow-lg">
               Search The Yard
             </h1>
-            <SearchForm onSearch={handleSearch} />
+            <SearchForm
+              onSearch={handleSearch}
+              selectedResult={results[0]}
+              query={query}
+              setQuery={setQuery}
+            />
           </div>
         </div>
 
@@ -72,7 +79,7 @@ export default function SearchPage() {
 
             {results.length > 0 && (
               <div className=" backdrop-blur-md bg-white/10 rounded-2xl">
-                <SearchResults results={results} />
+                <SearchResults results={results} query={query} />
               </div>
             )}
           </div>

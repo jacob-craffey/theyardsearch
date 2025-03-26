@@ -5,19 +5,39 @@ interface ResultItemProps {
   result: SearchResult;
   index: number;
   isPlaying: boolean;
-  compact?: boolean;
   onClick: () => void;
+  query: string;
 }
 
 export const ResultItem = ({
   result,
   index,
   isPlaying,
-  compact = false,
   onClick,
+  query,
 }: ResultItemProps) => {
   const getYoutubeThumbnail = (videoId: string) => {
     return `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+  };
+
+  const highlightText = (text: string, query: string) => {
+    if (!query.trim()) return text;
+
+    const words = query.trim().toLowerCase().split(/\s+/);
+    const regex = new RegExp(`\\b(${words.join("|")})\\b`, "gi");
+
+    return text.split(regex).map((part, i) =>
+      words.some((word) => part.toLowerCase() === word) ? (
+        <mark
+          key={i}
+          className="bg-[color:var(--color-lawn-500)]/30 text-white"
+        >
+          {part}
+        </mark>
+      ) : (
+        part
+      )
+    );
   };
 
   return (
@@ -27,17 +47,13 @@ export const ResultItem = ({
       onClick={onClick}
     >
       <div className="p-3 rounded-lg">
-        <div className={`flex ${compact ? "gap-3" : "flex-col gap-2"}`}>
-          <div
-            className={`${
-              compact ? "w-40 flex-shrink-0" : "w-full"
-            } relative aspect-video rounded-md overflow-hidden`}
-          >
+        <div className="flex flex-col gap-2">
+          <div className="w-full relative aspect-video rounded-md overflow-hidden">
             <Image
               src={getYoutubeThumbnail(result.metadata.videoId!)}
               alt={result.metadata.chapterTitle}
               fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes="100vw"
               className="object-cover"
               priority={index === 0}
             />
@@ -49,8 +65,10 @@ export const ResultItem = ({
             <h3 className="font-medium truncate text-white text-sm">
               {result.metadata.chapterTitle}
             </h3>
-            <div className="text-xs text-gray-400 flex items-center gap-2"></div>
           </div>
+          <p className="text-sm text-gray-400 line-clamp-5">
+            {highlightText(result.metadata.text || "", query)}
+          </p>
         </div>
       </div>
     </div>
