@@ -13,7 +13,6 @@ interface SearchResultsProps {
 export const SearchResults = ({ results, query }: SearchResultsProps) => {
   const [playingIndex, setPlayingIndex] = useState(0);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const mainResult = results[0];
   const recommendations = results.slice(1);
 
   const handleResultClick = (index: number) => {

@@ -8,7 +8,6 @@ import { SearchResults } from "../components/SearchResults";
 export default function SearchPage() {
   const [results, setResults] = useState<SearchResult[]>([]);
   const [error, setError] = useState<string>("");
-  const [selectedResult, setSelectedResult] = useState<SearchResult>();
   const [query, setQuery] = useState<string>("");
 
   const handleSearch = async (query: string) => {
