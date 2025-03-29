@@ -7,7 +7,6 @@ A semantic search engine for The Yard videos, powered by AI. This application al
 - 🔍 Semantic search using OpenAI embeddings
 - 🎯 Precise video timestamp linking
 - 🎬 Integrated video playback
-- 🚀 Real-time search results
 - 🔄 Rate limiting to ensure fair usage
 - 📱 Responsive design for all devices
 
@@ -65,6 +64,3 @@ The project structure:
 
 The application is optimized for deployment on Vercel
 
-## License
-
-All rights reserved. This project is proprietary and confidential.
