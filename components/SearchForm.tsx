@@ -35,7 +35,7 @@ export const SearchForm = ({ onSearch, query, setQuery }: SearchFormProps) => {
             onChange={handleChange}
             placeholder="Search anything..."
             maxLength={500}
-            className="w-full px-4 sm:px-6 py-3 sm:py-4 text-base sm:text-lg bg-white/80 backdrop-blur-md border-2 border-white/20 rounded-2xl focus:outline-none focus:border-[color:var(--color-lawn-500)] focus:bg-white/90 transition-all duration-200 shadow-lg text-gray-800 placeholder-gray-500"
+            className="w-full px-4 !pr-[65px] sm:px-6 py-3 sm:py-4 text-base sm:text-lg bg-white/80 backdrop-blur-md border-2 border-white/20 rounded-2xl focus:outline-none focus:border-[color:var(--color-lawn-500)] focus:bg-white/90 transition-all duration-200 shadow-lg text-gray-800 placeholder-gray-500"
             disabled={isLoading}
           />
           <button
